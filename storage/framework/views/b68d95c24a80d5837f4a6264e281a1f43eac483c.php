@@ -4,10 +4,16 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
     <?php echo $__env->make('restorants.partials.modals', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+   
+   <?php $__env->startPush('style'); ?>
+   
+   <?php $__env->stopPush(); ?>
+
+
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     </div>
 
-    <div class="container-fluid mt--7">
+    <div  >
         <div class="row">
             <div class="col">
                 <div class="card shadow">
@@ -29,9 +35,10 @@
                         <?php echo $__env->make('partials.flash', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                     </div>
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
+                        <table class="table align-items-center table-flush" id="example">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col"><?php echo e(__('ID')); ?></th>
                                     <th scope="col"><?php echo e(__('Name')); ?></th>
                                     <th scope="col"><?php echo e(__('Logo')); ?></th>
                                     <th scope="col"><?php echo e(__('Owner')); ?></th>
@@ -44,6 +51,7 @@
                             <tbody>
                                 <?php $__currentLoopData = $restorants; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $restorant): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                         <td><?php echo e($restorant->id); ?> </td>
                                         <td><a href="<?php echo e(route('admin.restaurants.edit', $restorant)); ?>"><?php echo e($restorant->name); ?></a></td>
                                         <td><img class="rounded" src=<?php echo e($restorant->icon); ?> width="50px" height="50px"></img></td>
                                         <td><?php echo e($restorant->user?$restorant->user->name:__('Deleted')); ?></td>
@@ -96,6 +104,10 @@
                 </div>
             </div>
         </div>
+
+        <?php $__env->startPush('js'); ?>
+ 
+        <?php $__env->stopPush(); ?>
 
         <?php echo $__env->make('layouts.footers.auth', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     </div>

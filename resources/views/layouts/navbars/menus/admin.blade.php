@@ -2,7 +2,7 @@
     @if(config('app.ordering'))
         <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">
-                <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
+             <i class="fa fa-home" style="font-size:25px;color:#42d0d0"></i>{{ __('Dashboard') }}
             </a>
         </li>
         @if(config('app.isft'))
@@ -33,7 +33,7 @@
         @endif
         <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.restaurants.index') }}">
-                <i class="ni ni-shop text-info"></i> {{ __('Restaurants') }}
+              <i class="fa fa-meetup" style="font-size:25px;color:#42d0d0"></i> {{ __('Restaurants') }}
             </a>
         </li>
         @if(config('app.isft'))
@@ -52,20 +52,22 @@
         @endif
         <li class="nav-item">
             <a class="nav-link" href="{{ route('pages.index') }}">
-                <i class="ni ni-ungroup text-info"></i> {{ __('Pages') }}
+               <i class='far fa-file-word' style='font-size:25px;color:#42d0d0'></i> {{ __('Pages') }}
             </a>
         </li>
         @if(config('settings.enable_pricing'))
         <li class="nav-item">
             <a class="nav-link" href="{{ route('plans.index') }}">
-                <i class="ni ni-credit-card text-orange"></i> {{ __('Pricing plans') }}
+                
+<i class="fa fa-paper-plane-o" style="font-size:25px;color:#42d0d0"></i>
+                {{ __('Pricing plans') }}
             </a>
         </li>
         @endif
         @if(config('app.ordering')&&config('settings.enable_finances_admin'))
         <li class="nav-item">
             <a class="nav-link" href="{{ route('finances.admin') }}">
-                <i class="ni ni-money-coins text-blue"></i> {{ __('Finances') }}
+              <i class='fas fa-money-bill-wave-alt' style='font-size:25px;color:#42d0d0'></i> {{ __('Finances') }}
             </a>
         </li>
         @endif
@@ -93,7 +95,7 @@
                 }
             ?>
             <a class="nav-link" target="_blank" href="{{ url('/admin/languages')."/".$theLocaleToOpen."/translations" }}">
-                <i class="ni ni-world text-orange"></i>{{ __('Translations') }}
+               <i class="fa fa-language" style="font-size:25px;color:#42d0d0"></i>{{ __('Translations') }}
             </a>
         </li>
         @else
@@ -114,14 +116,14 @@
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('settings.index') }}">
-                <i class="ni ni-settings text-black"></i> {{ __('Site Settings') }}
+                <i class="fa fa-gear" style="font-size:25px;color:#42d0d0"></i>{{ __('Site Settings') }}
             </a>
         </li>
 
         @if(!config('settings.hideApps'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('apps.index') }}">
-                    <i class="ni ni-spaceship text-red"></i> {{ __('Apps') }}
+                    <i class='fab fa-app-store' style='font-size:25px;color:#42d0d0'></i> {{ __('Apps') }}
                 </a>
             </li>
         @endif
@@ -129,7 +131,7 @@
         
         <li class="nav-item">
             <a class="nav-link" href="{{ route('settings.cloudupdate') }}">
-                <i class="ni ni-cloud-download-95 text-blue"></i> {{ __('Updates') }}
+             <i class='fas fa-upload' style='font-size:25px;color:#42d0d0'></i> {{ __('Updates') }}
             </a>
         </li>
 

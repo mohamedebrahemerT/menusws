@@ -2,7 +2,7 @@
     <?php if(config('app.ordering')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('home')); ?>">
-                <i class="ni ni-tv-2 text-primary"></i> <?php echo e(__('Dashboard')); ?>
+             <i class="fa fa-home" style="font-size:25px;color:#42d0d0"></i><?php echo e(__('Dashboard')); ?>
 
             </a>
         </li>
@@ -37,7 +37,7 @@
         <?php endif; ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('admin.restaurants.index')); ?>">
-                <i class="ni ni-shop text-info"></i> <?php echo e(__('Restaurants')); ?>
+              <i class="fa fa-meetup" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Restaurants')); ?>
 
             </a>
         </li>
@@ -59,14 +59,16 @@
         <?php endif; ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('pages.index')); ?>">
-                <i class="ni ni-ungroup text-info"></i> <?php echo e(__('Pages')); ?>
+               <i class='far fa-file-word' style='font-size:25px;color:#42d0d0'></i> <?php echo e(__('Pages')); ?>
 
             </a>
         </li>
         <?php if(config('settings.enable_pricing')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('plans.index')); ?>">
-                <i class="ni ni-credit-card text-orange"></i> <?php echo e(__('Pricing plans')); ?>
+                
+<i class="fa fa-paper-plane-o" style="font-size:25px;color:#42d0d0"></i>
+                <?php echo e(__('Pricing plans')); ?>
 
             </a>
         </li>
@@ -74,7 +76,7 @@
         <?php if(config('app.ordering')&&config('settings.enable_finances_admin')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('finances.admin')); ?>">
-                <i class="ni ni-money-coins text-blue"></i> <?php echo e(__('Finances')); ?>
+              <i class='fas fa-money-bill-wave-alt' style='font-size:25px;color:#42d0d0'></i> <?php echo e(__('Finances')); ?>
 
             </a>
         </li>
@@ -105,7 +107,7 @@
                 }
             ?>
             <a class="nav-link" target="_blank" href="<?php echo e(url('/admin/languages')."/".$theLocaleToOpen."/translations"); ?>">
-                <i class="ni ni-world text-orange"></i><?php echo e(__('Translations')); ?>
+               <i class="fa fa-language" style="font-size:25px;color:#42d0d0"></i><?php echo e(__('Translations')); ?>
 
             </a>
         </li>
@@ -129,7 +131,7 @@
 
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('settings.index')); ?>">
-                <i class="ni ni-settings text-black"></i> <?php echo e(__('Site Settings')); ?>
+                <i class="fa fa-gear" style="font-size:25px;color:#42d0d0"></i><?php echo e(__('Site Settings')); ?>
 
             </a>
         </li>
@@ -137,7 +139,7 @@
         <?php if(!config('settings.hideApps')): ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo e(route('apps.index')); ?>">
-                    <i class="ni ni-spaceship text-red"></i> <?php echo e(__('Apps')); ?>
+                    <i class='fab fa-app-store' style='font-size:25px;color:#42d0d0'></i> <?php echo e(__('Apps')); ?>
 
                 </a>
             </li>
@@ -146,7 +148,7 @@
         
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('settings.cloudupdate')); ?>">
-                <i class="ni ni-cloud-download-95 text-blue"></i> <?php echo e(__('Updates')); ?>
+             <i class='fas fa-upload' style='font-size:25px;color:#42d0d0'></i> <?php echo e(__('Updates')); ?>
 
             </a>
         </li>

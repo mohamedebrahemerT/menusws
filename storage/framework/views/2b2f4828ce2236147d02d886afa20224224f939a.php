@@ -56,6 +56,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500&display=swap" rel="stylesheet"> 
 
+         <?php echo $__env->yieldPushContent('style'); ?>
+ <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
 
     </head>
     <body class="<?php echo e($class ?? ''); ?>" style="    font-family: 'Cairo', sans-serif;">
@@ -172,6 +174,11 @@
 
         <!-- Custom JS defined by admin -->
         <?php echo file_get_contents(base_path('public/byadmin/back.js')) ?>
+
+         <?php echo $__env->yieldPushContent('js'); ?>
+
+   
+
     </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\dashboard\menusws\resources\views/layouts/app.blade.php ENDPATH**/ ?>

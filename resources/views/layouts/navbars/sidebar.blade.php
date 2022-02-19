@@ -1,5 +1,5 @@
 @if (in_array(config('app.locale'),['ar','he','fa','ur']))
-    <nav class="navbar navbar-vertical fixed-right navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <nav class="navbar navbar-vertical fixed-right navbar-expand-md navbar-light bg-white" id="sidenav-main" style="background-color: #000 !important;">
 @else
     <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
 @endif

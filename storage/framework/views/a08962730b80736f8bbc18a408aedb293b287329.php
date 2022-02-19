@@ -2,21 +2,21 @@
     <?php if(config('app.ordering')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('home')); ?>">
-                <i class="ni ni-tv-2 text-primary"></i> <?php echo e(__('Dashboard')); ?>
+               <i class="fa fa-home" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Dashboard')); ?>
 
             </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="/live">
-                <i class="ni ni-basket text-success"></i> <?php echo e(__('Live Orders')); ?><div class="blob red"></div>
+                <i class='fas fa-stream' style='font-size:25px;color:#42d0d0'></i> <?php echo e(__('Live Orders')); ?><div class="blob red"></div>
             </a>
         </li>
 
 
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('orders.index')); ?>">
-                <i class="ni ni-basket text-orangse"></i> <?php echo e(__('Orders')); ?>
+               <i class="fa fa-first-order" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Orders')); ?>
 
             </a>
         </li>
@@ -24,13 +24,13 @@
 
     <li class="nav-item">
         <a class="nav-link" href="<?php echo e(route('admin.restaurants.edit',  auth()->user()->restorant->id)); ?>">
-            <i class="ni ni-shop text-info"></i> <?php echo e(__('Restaurant')); ?>
+           <i class="fa fa-meetup" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Restaurant')); ?>
 
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo e(route('items.index')); ?>">
-            <i class="ni ni-collection text-pink"></i> <?php echo e(__('Menu')); ?>
+            <i class="fa fa-list" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Menu')); ?>
 
         </a>
     </li>
@@ -39,7 +39,7 @@
         <?php if(!config('settings.is_whatsapp_ordering_mode') || in_array("poscloud", config('global.modules',[]))  || in_array("deliveryqr", config('global.modules',[])) ): ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo e(route('admin.restaurant.tables.index')); ?>">
-                    <i class="ni ni-ungroup text-red"></i> <?php echo e(__('Tables')); ?>
+                   <i class="fa fa-table" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Tables')); ?>
 
                 </a>
             </li>
@@ -66,14 +66,14 @@
     <?php if(config('app.isqrsaas')&&!config('settings.is_whatsapp_ordering_mode')&&!config('settings.is_pos_cloud_mode')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('qr')); ?>">
-                <i class="ni ni-mobile-button text-red"></i> <?php echo e(__('QR Builder')); ?>
+                <i class="fa fa-qrcode" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('QR Builder')); ?>
 
             </a>
         </li>
         <?php if(config('settings.enable_guest_log')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('admin.restaurant.visits.index')); ?>">
-                <i class="ni ni-calendar-grid-58 text-blue"></i> <?php echo e(__('Customers log')); ?>
+                 <i class="fa fa-user" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Customers log')); ?>
 
             </a>
         </li>
@@ -83,7 +83,7 @@
     <?php if(config('app.isqrsaas')&&(config('settings.is_whatsapp_ordering_mode') || in_array("poscloud", config('global.modules',[]))  ||  in_array("deliveryqr", config('global.modules',[]))  )): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('admin.restaurant.simpledelivery.index')); ?>">
-                <i class="ni ni-pin-3 text-blue"></i> <?php echo e(__('Delivery areas')); ?>
+               <i class="fa fa-plan" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Delivery areas')); ?>
 
             </a>
         </li>
@@ -92,7 +92,7 @@
     <?php if(config('settings.enable_pricing')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('plans.current')); ?>">
-                <i class="ni ni-credit-card text-orange"></i> <?php echo e(__('Plan')); ?>
+            <i class="fa fa-paper-plane-o" style="font-size:25px;color:#42d0d0"></i> <?php echo e(__('Plan')); ?>
 
             </a>
         </li>
@@ -101,7 +101,7 @@
         <?php if(config('app.ordering')&&config('settings.enable_finances_owner')): ?>
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo e(route('finances.owner')); ?>">
-                    <i class="ni ni-money-coins text-blue"></i> <?php echo e(__('Finances')); ?>
+                     <i class='fas fa-money-bill-wave-alt' style='font-size:25px;color:#42d0d0'></i> <?php echo e(__('Finances')); ?>
 
                 </a>
             </li>
@@ -122,7 +122,7 @@
     <?php if(!config('settings.is_pos_cloud_mode')): ?>
         <li class="nav-item">
             <a class="nav-link" href="<?php echo e(route('share.menu')); ?>">
-                <i class="ni ni-send text-green"></i> <?php echo e(__('Share')); ?>
+             <i class="fa fa-share" style="font-size:25px;color:#42d0d0"></i><?php echo e(__('Share')); ?>
 
             </a>
         </li>

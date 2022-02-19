@@ -4,10 +4,16 @@
 @endsection
 @section('content')
     @include('restorants.partials.modals')
+   
+   @push('style')
+   
+   @endpush
+
+
     <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
     </div>
 
-    <div class="container-fluid mt--7">
+    <div  >
         <div class="row">
             <div class="col">
                 <div class="card shadow">
@@ -29,9 +35,10 @@
                         @include('partials.flash')
                     </div>
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
+                        <table class="table align-items-center table-flush" id="example">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col">{{ __('ID') }}</th>
                                     <th scope="col">{{ __('Name') }}</th>
                                     <th scope="col">{{ __('Logo') }}</th>
                                     <th scope="col">{{ __('Owner') }}</th>
@@ -44,6 +51,7 @@
                             <tbody>
                                 @foreach ($restorants as $restorant)
                                     <tr>
+                                         <td>{{$restorant->id}} </td>
                                         <td><a href="{{ route('admin.restaurants.edit', $restorant) }}">{{ $restorant->name }}</a></td>
                                         <td><img class="rounded" src={{ $restorant->icon }} width="50px" height="50px"></img></td>
                                         <td>{{  $restorant->user?$restorant->user->name:__('Deleted') }}</td>
@@ -94,6 +102,10 @@
                 </div>
             </div>
         </div>
+
+        @push('js')
+ 
+        @endpush
 
         @include('layouts.footers.auth')
     </div>
