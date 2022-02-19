@@ -135,6 +135,7 @@
                
             <!-- END LOGIN FORM -->
             <!-- BEGIN FORGOT PASSWORD FORM -->
+            
             <form class="forget-form" action="<?php echo e(route('password.email')); ?>" method="post"> 
 
                   <?php echo csrf_field(); ?>
@@ -154,39 +155,90 @@
                     <button type="submit" class="btn btn-success uppercase pull-right" style="background-color: #42d0d0"><?php echo e(trans('trans.Submit')); ?></button>
                 </div>
             </form>
+            
             <!-- END FORGOT PASSWORD FORM -->
             <!-- BEGIN REGISTRATION FORM -->
-            <form class="register-form" action="index.html" method="post">
-                <h3 class="font-green"><?php echo e(trans('trans.Sign Up')); ?></h3>
-                <p class="hint"><?php echo e(trans('trans.Enter your personal details below')); ?> : </p>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Full Name</label>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Full Name" name="fullname" /> </div>
-                <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Email</label>
-                    <input class="form-control placeholder-no-fix" type="text" placeholder="Email" name="email" /> </div>
-                 
+            <form  id="registerform" class="register-form" action="<?php echo e(route('newrestaurant.store')); ?>"  method="post" autocomplete="off">
            
-             
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Password</label>
-                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
-             
-                <div class="form-group margin-top-20 margin-bottom-20">
-                    <label class="mt-checkbox mt-checkbox-outline">
-                        <input type="checkbox" name="tnc" /> I agree to the
-                        <a href="javascript:;">Terms of Service </a> &
-                        <a href="javascript:;">Privacy Policy </a>
-                        <span></span>
-                    </label>
-                    <div id="register_tnc_error"> </div>
-                </div>
-                <div class="form-actions">
-                    <button type="button" id="register-back-btn" class="btn green btn-outline">Back</button>
-                    <button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">Submit</button>
-                </div>
-            </form>
+                            <?php echo csrf_field(); ?>
+<h3 class="col-12 mb-0"><?php echo e(__('Register your restaurant')); ?></h3>
+                            <h6 class="heading-small text-muted mb-4"><?php echo e(__('Restaurant information')); ?></h6>
+
+                            <?php if(session('status')): ?>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <?php echo e(session('status')); ?>
+
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            <?php endif; ?>
+                            <div class="pl-lg-4">
+                                <div class="form-group<?php echo e($errors->has('name') ? ' has-danger' : ''); ?>">
+                                    <label class="form-control-label" for="name"><?php echo e(__('Restaurant Name')); ?></label>
+                                    <input type="text" name="name" id="name" class="form-control form-control-alternative<?php echo e($errors->has('name') ? ' is-invalid' : ''); ?>" placeholder="<?php echo e(__('Restaurant Name here')); ?> ..." value="<?php echo e(isset($_GET["name"])?$_GET['name']:""); ?>" required autofocus>
+                                    <?php if($errors->has('name')): ?>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong><?php echo e($errors->first('name')); ?></strong>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <hr class="my-4" />
+                            <h6 class="heading-small text-muted mb-4"><?php echo e(__('Owner information')); ?></h6>
+                            <div class="pl-lg-4">
+                                <div class="form-group<?php echo e($errors->has('name_owner') ? ' has-danger' : ''); ?>">
+                                    <label class="form-control-label" for="name_owner"><?php echo e(__('Owner Name')); ?></label>
+                                    <input type="text" name="name_owner" id="name_owner" class="form-control form-control-alternative<?php echo e($errors->has('name_owner') ? ' is-invalid' : ''); ?>" placeholder="<?php echo e(__('Owner Name here')); ?> ..." value="<?php echo e(isset($_GET["name"])?$_GET['name']:""); ?>" required autofocus>
+
+                                    <?php if($errors->has('name_owner')): ?>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong><?php echo e($errors->first('name_owner')); ?></strong>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="form-group<?php echo e($errors->has('email_owner') ? ' has-danger' : ''); ?>">
+                                    <label class="form-control-label" for="email_owner"><?php echo e(__('Owner Email')); ?></label>
+                                    <input type="email" name="email_owner" id="email_owner" class="form-control form-control-alternative<?php echo e($errors->has('email_owner') ? ' is-invalid' : ''); ?>" placeholder="<?php echo e(__('Owner Email here')); ?> ..." value="<?php echo e(isset($_GET["email"])?$_GET['email']:""); ?>" required autofocus>
+
+                                    <?php if($errors->has('email_owner')): ?>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong><?php echo e($errors->first('email_owner')); ?></strong>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="form-group<?php echo e($errors->has('phone_owner') ? ' has-danger' : ''); ?>">
+                                    <label class="form-control-label" for="phone_owner"><?php echo e(__('Owner Phone')); ?></label>
+                                    <input type="text" name="phone_owner" id="phone_owner" class="form-control form-control-alternative<?php echo e($errors->has('phone_owner') ? ' is-invalid' : ''); ?>" placeholder="<?php echo e(__('Owner Phone here')); ?> ..." value="<?php echo e(isset($_GET["phone"])?$_GET['phone']:""); ?>" required autofocus>
+
+                                    <?php if($errors->has('phone_owner')): ?>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong><?php echo e($errors->first('phone_owner')); ?></strong>
+                                        </span>
+                                    <?php endif; ?>
+                                </div>
+
+                                <div class="text-center">
+                                    <?php if(strlen(config('settings.recaptcha_site_key'))>2): ?>
+                                        <?php if($errors->has('g-recaptcha-response')): ?>
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong><?php echo e($errors->first('g-recaptcha-response')); ?></strong>
+                                        </span>
+                                        <?php endif; ?>
+
+                                        <?php echo htmlFormButton(__('Save'), ['id'=>'thesubmitbtn','class' => 'btn btn-success mt-4']); ?>
+
+                                    <?php else: ?>
+                                     <button type="button" id="register-back-btn" class="btn green btn-outline">Back</button>
+                                     
+                                        <button type="submit" id="thesubmitbtn" class="btn btn-success mt-4"><?php echo e(__('Save')); ?></button>
+                                    <?php endif; ?>
+ 
+
+                                </div>
+                            </div>
+
+                        </form>
             <!-- END REGISTRATION FORM -->
         </div>
        <div class="copyright"> ©️   <?php echo e(date('Y')); ?>  <?php echo e(trans('trans.all rights are save')); ?>   </div>

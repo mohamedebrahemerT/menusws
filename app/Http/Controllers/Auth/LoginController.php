@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\App;
 
 class LoginController extends Controller
 {
@@ -39,6 +41,19 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $lang='Ar';
+        $locale = Cookie::get('lang') ? Cookie::get('lang') : config('settings.app_locale');
+        if ($lang!=null) {
+            //this is language route
+            $locale = $lang;
+        }
+        App::setLocale(strtolower($locale));
+        session(['applocale_change' => strtolower($locale)]);
+
+        $dataToDisplay=[];
+        $response = new \Illuminate\Http\Response(view('dashboard_pure', $dataToDisplay));
+        $response->withCookie(cookie('lang', $locale, 120));
+        App::setLocale(strtolower($locale));
         $this->middleware('guest')->except('logout');
     }
 
